@@ -87,7 +87,7 @@ def _call_lastfm_api(method_name, **method_args):
 
 def _make_request_url(**kwargs):
     """Create URL for regular GET request"""
-    url = ROOT_URL[:] + '?'
+    url = ROOT_URL + '?'
     kwargs['format'] = 'json'
     url += urllib.urlencode(kwargs)
     return url
