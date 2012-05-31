@@ -35,7 +35,8 @@ def create_session():
     with open(environ['HOME'] + '/.lastfmsession', 'w') as session_file:
 
         # session is not opened -> open
-        token_url = _make_request_url(method='auth.gettoken', api_key=API_KEY)
+        token_url = _make_request_url(method='auth.gettoken',
+                                      api_key=API_KEY)
         token_response = urllib.urlopen(token_url)
         token = json.loads(token_response.read())['token']
 
@@ -45,9 +46,8 @@ def create_session():
         raw_input()
 
         session_req_url = _make_signed_request_url(
-                                                method='auth.getsession',
-                                                token=token,
-                                                api_key=API_KEY)
+                method='auth.getsession',
+                token=token, api_key=API_KEY)
         
         session_response = urllib2.urlopen(session_req_url)
 
@@ -71,10 +71,9 @@ def get_artist_info(artist_name):
     
     Description: http://www.last.fm/api/show/artist.getInfo
     """
-    return _call_lastfm_api(
-            'artist.getInfo',
-            # non-ascii chars not supported..
-            artist=artist_name.encode('utf-8'))
+    return _call_lastfm_api('artist.getInfo',
+                            # non-ascii chars not supported..
+                            artist=artist_name.encode('utf-8'))
 
 def _call_lastfm_api(method_name, **method_args):
     """Call lastfm method with given parameters, return result JSON"""
