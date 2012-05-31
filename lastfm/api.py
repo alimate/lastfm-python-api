@@ -6,8 +6,8 @@ import simplejson as json
 import webbrowser
 from os import environ
 
-API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ROOT_URL = 'http://ws.audioscrobbler.com/2.0/'
+API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 SECRET = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 def create_session():
